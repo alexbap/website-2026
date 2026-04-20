@@ -41,9 +41,26 @@
         .text-gray-300 { color: var(--footer-text, #d1d5db) !important; }
         .bg-gray-900 { background-color: var(--footer, #111827) !important; }
         .border-b { border-color: var(--border, #e5e7eb) !important; }
+
+        /* Estilo forte para o toggle */
+        #theme-toggle {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+        }
+        #theme-toggle:hover {
+            background-color: #f3f4f6;
+        }
+        [data-theme="dark"] #theme-toggle:hover {
+            background-color: #334155;
+        }
     </style>
 
-    <!-- Previne flash branco/preto -->
     <script>
         (function() {
             const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -55,15 +72,8 @@
 
 <nav class="border-b sticky top-0 z-50 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <!-- Logo + Toggle juntos (esquerda) -->
-        <div class="flex items-center gap-4">
-            <a href="index.html" class="text-3xl font-semibold text-[var(--main)]">Nettchantier</a>
-            
-            <button id="theme-toggle" 
-                    class="w-9 h-9 flex items-center justify-center text-xl rounded-xl hover:bg-gray-100 dark:hover:bg-slate-700 transition-all">
-                <i class="fas fa-sun"></i>
-            </button>
-        </div>
+        <!-- Logo esquerda -->
+        <a href="index.html" class="text-3xl font-semibold text-[var(--main)]">Nettchantier</a>
 
         <!-- Menu desktop -->
         <div class="hidden md:flex space-x-8 text-lg">
@@ -73,8 +83,13 @@
             <a href="contact.html" class="hover:text-[var(--main)]">Contact</a>
         </div>
 
-        <!-- Direita: Contact + Hamburger -->
-        <div class="flex items-center gap-3">
+        <!-- Direita: Toggle + Contact + Hamburger -->
+        <div class="flex items-center gap-2 md:gap-4">
+            <!-- Toggle visível apenas em desktop (md e acima) -->
+            <button id="theme-toggle" class="hidden md:flex">
+                <i class="fas fa-sun"></i>
+            </button>
+
             <a href="contact.html" class="bg-[var(--main)] hover:bg-orange-700 text-white px-5 py-2 rounded-2xl font-medium flex items-center gap-2 text-sm">
                 <i class="fas fa-phone"></i> Contactez-nous
             </a>
@@ -84,6 +99,13 @@
 
     <!-- Menu mobile -->
     <div id="mobileMenu" class="hidden md:hidden border-t px-4 py-4 bg-white">
+        <!-- Toggle dentro do menu mobile -->
+        <div class="flex justify-end mb-4">
+            <button id="theme-toggle-mobile" class="flex md:hidden">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+        
         <a href="index.html" class="block py-3 hover:text-[var(--main)]">Accueil</a>
         <a href="about.html" class="block py-3 hover:text-[var(--main)]">À propos</a>
         <a href="services.html" class="block py-3 hover:text-[var(--main)]">Services</a>
@@ -132,29 +154,20 @@
         document.getElementById('mobileMenu').classList.toggle('hidden');
     }
 
-    // Dark Mode
-    const themeToggle = document.getElementById('theme-toggle');
+    // Dark Mode - sincroniza ambos os botões
+    const themeToggleDesktop = document.getElementById('theme-toggle');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
     const html = document.documentElement;
 
     function setTheme(theme) {
         html.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        
+        const icon = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        if (themeToggleDesktop) themeToggleDesktop.innerHTML = icon;
+        if (themeToggleMobile) themeToggleMobile.innerHTML = icon;
     }
 
-    // Inicializa
     function initTheme() {
         const saved = localStorage.getItem('theme') || 
-                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        setTheme(saved);
-    }
 
-    themeToggle.addEventListener('click', () => {
-        const current = html.getAttribute('data-theme') || 'light';
-        setTheme(current === 'light' ? 'dark' : 'light');
-    });
-
-    initTheme();
-</script>
-</body>
-</html>
