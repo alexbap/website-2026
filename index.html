@@ -42,7 +42,7 @@
         .bg-gray-900 { background-color: var(--footer, #111827) !important; }
         .border-b { border-color: var(--border, #e5e7eb) !important; }
 
-        /* Botão flutuante */
+        /* Botão flutuante Dark Mode */
         #theme-toggle {
             position: fixed;
             bottom: 20px;
@@ -68,24 +68,25 @@
             transform: scale(1.1);
         }
 
-        /* Ajustes mobile para logo + pinguim */
+        /* Logo com pinguim */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         .logo-container img {
-            width: 42px;
-            height: 42px;
+            width: 46px;
+            height: 46px;
             object-fit: contain;
         }
         .logo-text {
-            font-size: 1.55rem;
+            font-size: 1.65rem;
             font-weight: 600;
             color: var(--main);
         }
     </style>
 
+    <!-- Previne flash de tema -->
     <script>
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'light';
@@ -100,7 +101,9 @@
         
         <!-- Logo + Pinguim -->
         <div class="logo-container">
-            <img src="Images/pinguim_sem_background_136x136.png.webp" alt="Nettchantier Mascote" class="rounded-full">
+            <img src="Images/pinguim_sem_background_136x136.webp" 
+                 alt="Mascote Nettchantier" 
+                 class="drop-shadow-sm">
             <span class="logo-text">Nettchantier</span>
         </div>
 
@@ -118,7 +121,7 @@
                 <i class="fas fa-phone"></i> 
                 <span class="hidden sm:inline">Contactez-nous</span>
             </a>
-            <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-gray-700"><i class="fas fa-bars"></i></button>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
         </div>
     </div>
 
@@ -177,6 +180,7 @@
         document.getElementById('mobileMenu').classList.toggle('hidden');
     }
 
+    // Dark Mode
     const toggleBtn = document.getElementById('theme-toggle');
     const html = document.documentElement;
 
