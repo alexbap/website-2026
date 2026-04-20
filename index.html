@@ -12,56 +12,55 @@
 
         :root {
             --main: #FF7A00;
-            --bg: #ffffff;
-            --text: #111827;
-            --nav-bg: #ffffff;
-            --border: #e5e7eb;
-            --card-bg: #f9fafb;
-            --footer-bg: #111827;
-            --footer-text: #d1d5db;
         }
 
         [data-theme="dark"] {
             --bg: #0f172a;
             --text: #f1f5f9;
-            --nav-bg: #1e2937;
-            --border: #334155;
-            --card-bg: #1e2937;
-            --footer-bg: #020617;
+            --nav: #1e2937;
+            --card: #1e2937;
+            --footer: #020617;
             --footer-text: #94a3b8;
+            --border: #334155;
         }
 
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: var(--bg, #ffffff);
+            color: var(--text, #111827);
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        nav { background-color: var(--nav-bg) !important; border-color: var(--border) !important; }
-        .bg-white { background-color: var(--bg) !important; }
-        .bg-gray-50 { background-color: var(--card-bg) !important; }
-        .text-gray-900 { color: var(--text) !important; }
-        .text-gray-300 { color: var(--footer-text) !important; }
-        .bg-gray-900 { background-color: var(--footer-bg) !important; }
-        .border-b { border-color: var(--border) !important; }
+        nav { 
+            background-color: var(--nav, #ffffff) !important; 
+            border-color: var(--border, #e5e7eb) !important; 
+        }
+        .bg-white { background-color: var(--bg, #ffffff) !important; }
+        .bg-gray-50 { background-color: var(--card, #f9fafb) !important; }
+        .text-gray-900 { color: var(--text, #111827) !important; }
+        .text-gray-300 { color: var(--footer-text, #d1d5db) !important; }
+        .bg-gray-900 { background-color: var(--footer, #111827) !important; }
+        .border-b { border-color: var(--border, #e5e7eb) !important; }
     </style>
 
-    <!-- Previne flash de cor ao carregar -->
+    <!-- Previne flash branco/preto -->
     <script>
-        const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', saved);
+        (function() {
+            const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
     </script>
 </head>
-<body>
+<body class="bg-white text-gray-900">
 
 <nav class="border-b sticky top-0 z-50 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <!-- Logo + Toggle -->
+        <!-- Logo + Toggle juntos (esquerda) -->
         <div class="flex items-center gap-4">
             <a href="index.html" class="text-3xl font-semibold text-[var(--main)]">Nettchantier</a>
             
-            <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center text-2xl rounded-2xl hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">
+            <button id="theme-toggle" 
+                    class="w-9 h-9 flex items-center justify-center text-xl rounded-xl hover:bg-gray-100 dark:hover:bg-slate-700 transition-all">
                 <i class="fas fa-sun"></i>
             </button>
         </div>
@@ -74,7 +73,7 @@
             <a href="contact.html" class="hover:text-[var(--main)]">Contact</a>
         </div>
 
-        <!-- Botões direitos -->
+        <!-- Direita: Contact + Hamburger -->
         <div class="flex items-center gap-3">
             <a href="contact.html" class="bg-[var(--main)] hover:bg-orange-700 text-white px-5 py-2 rounded-2xl font-medium flex items-center gap-2 text-sm">
                 <i class="fas fa-phone"></i> Contactez-nous
@@ -84,7 +83,7 @@
     </div>
 
     <!-- Menu mobile -->
-    <div id="mobileMenu" class="hidden md:hidden border-t px-4 py-4">
+    <div id="mobileMenu" class="hidden md:hidden border-t px-4 py-4 bg-white">
         <a href="index.html" class="block py-3 hover:text-[var(--main)]">Accueil</a>
         <a href="about.html" class="block py-3 hover:text-[var(--main)]">À propos</a>
         <a href="services.html" class="block py-3 hover:text-[var(--main)]">Services</a>
@@ -92,4 +91,70 @@
     </div>
 </nav>
 
-<header class="relative bg-gradient-to-br from-orange-600 to-orange-800
+<header class="relative bg-gradient-to-br from-orange-600 to-orange-800 text-white py-24">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <img src="Images/Nettchantier-scaled.webp" alt="Nettoyage fin de chantier" class="mx-auto rounded-3xl shadow-2xl mb-8 w-full max-h-[440px] object-cover">
+        <h1 class="text-4xl md:text-5xl font-semibold mb-6">Nous sommes à votre service !</h1>
+        <p class="text-2xl mb-8">Nettchantier est une entreprise de services de nettoyage professionnel pour particuliers et entreprises.</p>
+        <a href="contact.html" class="inline-flex items-center gap-3 bg-white text-orange-700 hover:bg-orange-100 px-10 py-5 rounded-3xl text-2xl font-semibold">Contactez-Nous !</a>
+    </div>
+</header>
+
+<div class="py-12 bg-white border-b text-center">
+    <p class="text-2xl font-medium mb-3">Appelez-nous !</p>
+    <a href="tel:+33982320946" class="text-4xl font-semibold text-[var(--main)] hover:underline">+33 982 320 946</a>
+</div>
+
+<section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl font-semibold text-center mb-12">Un service de qualité pour répondre à vos besoins</h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-md mx-auto">
+            <div class="bg-white p-8 rounded-3xl shadow-sm">Rapidité d'exécution</div>
+            <div class="bg-white p-8 rounded-3xl shadow-sm">Flexibilité dans les horaires</div>
+        </div>
+    </div>
+</section>
+
+<div class="bg-[var(--main)] text-white py-12 text-center text-2xl font-medium">
+    <a href="contact.html" class="hover:underline">Planifiez votre nettoyage maintenant →</a>
+</div>
+
+<footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-xl mb-2">📍 Bordeaux • Arcachon • Cap Ferret • Médoc • Saint Émilion</p>
+        <p class="text-2xl mb-8">+33 982 320 946</p>
+        <p class="text-sm">© Nettchantier 2026 – Tous droits réservés</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMobileMenu() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    // Dark Mode
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+    }
+
+    // Inicializa
+    function initTheme() {
+        const saved = localStorage.getItem('theme') || 
+                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setTheme(saved);
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme') || 'light';
+        setTheme(current === 'light' ? 'dark' : 'light');
+    });
+
+    initTheme();
+</script>
+</body>
+</html>
