@@ -5,183 +5,281 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Services de nettoyage fin de chantier, fin de location et entretien haut de gamme à Bordeaux.">
     <title>nettchantier – Services</title>
-    
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-        :root {
-            --main: #FF7A00;
-        }
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <style>
+        :root { --main: #FF7A00; }
 
         [data-theme="dark"] {
-            --bg: #0f172a;
-            --text: #f1f5f9;
-            --nav: #1e2937;
-            --card: #1e2937;
-            --footer: #020617;
-            --footer-text: #94a3b8;
-            --border: #334155;
+            --bg: #0f172a; --text: #f1f5f9; --nav: #1e2937;
+            --card: #1e2937; --footer: #020617;
+            --footer-text: #94a3b8; --border: #334155;
         }
 
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background-color: var(--bg, #ffffff);
             color: var(--text, #111827);
             transition: background-color 0.4s ease, color 0.4s ease;
+            -webkit-font-smoothing: antialiased;
         }
 
-        nav { 
-            background-color: var(--nav, #ffffff) !important; 
-            border-color: var(--border, #e5e7eb) !important; 
+        nav {
+            background-color: var(--nav, #ffffff);
+            border-bottom: 1px solid var(--border, #e5e7eb);
+            position: sticky; top: 0; z-index: 50;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }
-        .bg-white { background-color: var(--bg, #ffffff) !important; }
-        .bg-gray-50 { background-color: var(--card, #f9fafb) !important; }
-        .text-gray-900 { color: var(--text, #111827) !important; }
-        .text-gray-300 { color: var(--footer-text, #d1d5db) !important; }
-        .bg-gray-900 { background-color: var(--footer, #111827) !important; }
-        .border-b { border-color: var(--border, #e5e7eb) !important; }
+        .nav-inner {
+            max-width: 72rem; margin: 0 auto;
+            padding: 0.75rem 1rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-container img { width: 46px; height: 46px; object-fit: contain; }
+        .logo-text { font-size: 1.65rem; font-weight: 600; color: var(--main); }
+
+        .nav-links { display: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--text, #111827); font-size: 1.125rem; }
+        .nav-links a:hover { color: var(--main); }
+
+        .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+        .btn-envelope {
+            background-color: var(--main); color: #fff;
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 0.75rem; text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .btn-envelope:hover { background-color: #c2530a; }
+        .btn-menu {
+            background: none; border: none; cursor: pointer;
+            font-size: 1.75rem; color: var(--text, #111827);
+        }
+
+        .mobile-menu {
+            display: none;
+            border-top: 1px solid var(--border, #e5e7eb);
+            padding: 1.25rem 1rem;
+            background-color: var(--nav, #ffffff);
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu a {
+            display: block; padding: 0.75rem 0;
+            text-decoration: none; color: var(--text, #111827); font-size: 1.125rem;
+        }
+        .mobile-menu a:hover { color: var(--main); }
+
+        /* HERO BANNER */
+        .hero-banner {
+            background-color: #f97316; /* fallback sólido enquanto bg-image carrega */
+            color: #fff;
+            padding: 3rem 1.5rem 4rem;
+            position: relative; overflow: hidden;
+        }
+        .hero-banner-bg {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%; object-fit: cover;
+            opacity: 0.3;
+            /* Não bloqueia render — imagem de fundo decorativa */
+        }
+        .hero-inner {
+            max-width: 72rem; margin: 0 auto;
+            position: relative; z-index: 1;
+        }
+        .hero-banner h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 600; margin-bottom: 2rem;
+        }
+        .checklist { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem; }
+        .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1.1rem; }
+        .checklist .icon { font-size: 1.25rem; flex-shrink: 0; }
+
+        .avail-title { font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 600; margin-bottom: 1rem; }
+        .avail-text { font-size: 1.05rem; line-height: 1.7; }
+
+        @media (min-width: 768px) {
+            .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        }
+
+        /* SERVICES GRID */
+        .services-section {
+            max-width: 72rem; margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+        .services-section h2 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 600; text-align: center; margin-bottom: 3rem;
+        }
+        .services-grid {
+            display: grid; gap: 2rem;
+        }
+        .service-card { text-align: center; }
+        .service-card img {
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            height: 224px; object-fit: cover;
+            margin-bottom: 1rem;
+            /* Evitar layout shift */
+            aspect-ratio: 4/3;
+        }
+        .service-card p { font-weight: 500; font-size: 1.05rem; }
+
+        @media (min-width: 768px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        footer {
+            background-color: var(--footer, #111827);
+            color: var(--footer-text, #d1d5db);
+            padding: 3rem 1.5rem; text-align: center;
+        }
+        footer p { margin-bottom: 0.5rem; }
+        footer p:first-child { font-size: 1.125rem; }
+        footer p:nth-child(2) { font-size: 1.5rem; margin-bottom: 2rem; }
+        footer p:last-child { font-size: 0.875rem; }
 
         #theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 52px;
-            height: 52px;
-            background-color: #f3f4f6;
-            color: #111827;
-            border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: fixed; bottom: 20px; right: 20px;
+            width: 52px; height: 52px;
+            background-color: #f3f4f6; color: #111827;
+            border-radius: 9999px; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 100; transition: all 0.3s ease;
         }
-        [data-theme="dark"] #theme-toggle {
-            background-color: #334155;
-            color: #f1f5f9;
-        }
-        #theme-toggle:hover {
-            transform: scale(1.1);
+        [data-theme="dark"] #theme-toggle { background-color: #334155; color: #f1f5f9; }
+        #theme-toggle:hover { transform: scale(1.1); }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .btn-menu { display: none; }
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-container img {
-            width: 46px;
-            height: 46px;
-            object-fit: contain;
-        }
-        .logo-text {
-            font-size: 1.65rem;
-            font-weight: 600;
-            color: var(--main);
-        }
+        .fa-envelope::before { content: "✉"; }
+        .fa-bars::before { content: "☰"; }
+        .fa-sun::before { content: "☀"; }
+        .fa-moon::before { content: "☾"; }
     </style>
 
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
+            const t = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', t);
         })();
     </script>
 </head>
-<body class="bg-white text-gray-900">
+<body>
 
-<nav class="border-b sticky top-0 z-50 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <div class="logo-container">
-            <img src="Images/pinguim_sem_background_136x136.webp" alt="Mascote Nettchantier" class="drop-shadow-sm">
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="logo-container">
+            <img src="Images/pinguim_sem_background_136x136.webp" alt="Mascote Nettchantier" width="46" height="46">
             <span class="logo-text">Nettchantier</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À propos</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
         </div>
-
-        <div class="hidden md:flex space-x-8 text-lg">
-            <a href="index.html" class="hover:text-[var(--main)]">Accueil</a>
-            <a href="about.html" class="hover:text-[var(--main)]">À propos</a>
-            <a href="services.html" class="hover:text-[var(--main)]">Services</a>
-            <a href="contact.html" class="hover:text-[var(--main)]">Contact</a>
-        </div>
-
-        <div class="flex items-center gap-3">
-            <a href="contact.html" class="bg-[var(--main)] hover:bg-orange-700 text-white w-11 h-11 flex items-center justify-center rounded-2xl transition-colors">
-                <i class="fas fa-envelope text-lg"></i>
+        <div class="nav-actions">
+            <a href="contact.html" class="btn-envelope" aria-label="Contact">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
             </a>
-            <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
+            <button class="btn-menu" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" id="menuBtn">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
-
-    <div id="mobileMenu" class="hidden md:hidden border-t px-4 py-5 bg-white">
-        <a href="index.html" class="block py-3 hover:text-[var(--main)] text-lg">Accueil</a>
-        <a href="about.html" class="block py-3 hover:text-[var(--main)] text-lg">À propos</a>
-        <a href="services.html" class="block py-3 hover:text-[var(--main)] text-lg">Services</a>
-        <a href="contact.html" class="block py-3 hover:text-[var(--main)] text-lg">Contact</a>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Accueil</a>
+        <a href="about.html">À propos</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
     </div>
 </nav>
 
-<div class="bg-orange-500 text-white pt-12 pb-16 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+<div class="hero-banner">
+    <img class="hero-banner-bg"
+         src="Images/Nettchantier-nettoyage-professionnel-scaled.webp"
+         alt=""
+         aria-hidden="true"
+         width="1200" height="600"
+         loading="lazy">
+    <div class="hero-inner">
         <div>
-            <h1 class="text-4xl font-semibold mb-8">Services De Nettoyage Professionnel Et Personnalisé</h1>
-            <ul class="space-y-6 text-lg">
-                <li class="flex items-start gap-3"><span class="text-2xl">✅</span> Nous respectons les délais convenus</li>
-                <li class="flex items-start gap-3"><span class="text-2xl">✅</span> Nous sommes disponibles tous les jours, weekends et jours fériés</li>
-                <li class="flex items-start gap-3"><span class="text-2xl">✅</span> Nous nous adaptons en fonction de vos demandes</li>
+            <h1>Services De Nettoyage Professionnel Et Personnalisé</h1>
+            <ul class="checklist">
+                <li><span class="icon">✅</span> Nous respectons les délais convenus</li>
+                <li><span class="icon">✅</span> Nous sommes disponibles tous les jours, weekends et jours fériés</li>
+                <li><span class="icon">✅</span> Nous nous adaptons en fonction de vos demandes</li>
             </ul>
         </div>
         <div>
-            <h2 class="text-3xl font-semibold mb-6">Disponibilité Et Engagement</h2>
-            <p class="text-lg">Vous pouvez compter sur notre disponibilité totale, notre flexibilité d'horaire et notre engagement. L'attention que nous portons à notre travail et l'attention portée aux résultats vous assurent un service rapide et efficace.</p>
-        </div>
-    </div>
-    <img src="Images/Nettchantier-nettoyage-professionnel-scaled.webp" alt="Nettoyage" class="absolute inset-0 w-full h-full object-cover opacity-30">
-</div>
-
-<div class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-4xl font-semibold text-center mb-12">Services Que Nous Fournissons</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center">
-            <img src="Images/Nettchantier_nettoyage_fin_chantier-scaled.webp" alt="Fin de chantier" class="rounded-3xl shadow-md mb-4 w-full h-56 object-cover">
-            <p class="font-medium">Fin de chantier</p>
-        </div>
-        <div class="text-center">
-            <img src="Images/Nettchantier_nettoyage_fin_location-scaled.webp" alt="Fin de location" class="rounded-3xl shadow-md mb-4 w-full h-56 object-cover">
-            <p class="font-medium">Fin de location</p>
-        </div>
-        <div class="text-center">
-            <img src="Images/Nettchantier_nettoyage_haut_gamme.webp" alt="Maison de luxe" class="rounded-3xl shadow-md mb-4 w-full h-56 object-cover">
-            <p class="font-medium">Maison de luxe</p>
+            <p class="avail-title">Disponibilité Et Engagement</p>
+            <p class="avail-text">Vous pouvez compter sur notre disponibilité totale, notre flexibilité d'horaire et notre engagement. L'attention que nous portons à notre travail et l'attention portée aux résultats vous assurent un service rapide et efficace.</p>
         </div>
     </div>
 </div>
 
-<footer class="bg-gray-900 text-gray-300 py-12">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-        <p class="text-xl mb-2">📍 Bordeaux • Cap Ferret • Arcachon • Médoc • Saint Émilion</p>
-        <p class="text-2xl mb-8">+33 982 320 946</p>
-        <p class="text-sm">© Nettchantier 2026 – Tous droits réservés</p>
+<section class="services-section">
+    <h2>Services Que Nous Fournissons</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <img src="Images/Nettchantier_nettoyage_fin_chantier-scaled.webp"
+                 alt="Nettoyage fin de chantier"
+                 width="600" height="450"
+                 loading="lazy">
+            <p>Fin de chantier</p>
+        </div>
+        <div class="service-card">
+            <img src="Images/Nettchantier_nettoyage_fin_location-scaled.webp"
+                 alt="Nettoyage fin de location"
+                 width="600" height="450"
+                 loading="lazy">
+            <p>Fin de location</p>
+        </div>
+        <div class="service-card">
+            <img src="Images/Nettchantier_nettoyage_haut_gamme.webp"
+                 alt="Nettoyage maison de luxe"
+                 width="600" height="450"
+                 loading="lazy">
+            <p>Maison de luxe</p>
+        </div>
     </div>
+</section>
+
+<footer>
+    <p>📍 Bordeaux • Cap Ferret • Arcachon • Médoc • Saint Émilion</p>
+    <p>+33 982 320 946</p>
+    <p>© Nettchantier 2026 – Tous droits réservés</p>
 </footer>
 
 <button id="theme-toggle" aria-label="Changer le thème">
-    <i class="fas fa-sun"></i>
+    <i class="fas fa-sun" aria-hidden="true"></i>
 </button>
 
-<script src="https://cdn.tailwindcss.com" defer></script>
 <script>
-    function toggleMobileMenu() {
-        document.getElementById('mobileMenu').classList.toggle('hidden');
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const btn = document.getElementById('menuBtn');
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
     }
 
     const toggleBtn = document.getElementById('theme-toggle');
@@ -190,20 +288,14 @@
     function setTheme(theme) {
         html.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        toggleBtn.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        toggleBtn.querySelector('i').className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
     }
 
-    function initTheme() {
-        const saved = localStorage.getItem('theme') || 'light';
-        setTheme(saved);
-    }
+    setTheme(localStorage.getItem('theme') || 'light');
 
     toggleBtn.addEventListener('click', () => {
-        const current = html.getAttribute('data-theme') || 'light';
-        setTheme(current === 'light' ? 'dark' : 'light');
+        setTheme(html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
     });
-
-    initTheme();
 </script>
 </body>
 </html>

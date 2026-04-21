@@ -5,175 +5,282 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Nettoyage fin de chantier et fin de location à Bordeaux et Gironde. Service professionnel, rapide et accessible. Devis gratuit en 24h.">
     <title>nettchantier – Nettoyage fin de chantier</title>
-    
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-        :root {
-            --main: #FF7A00;
-        }
+    <!-- DNS prefetch apenas (preconnect bloqueia se não for usado imediatamente) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts: carregar de forma não-bloqueante -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
+
+    <!-- Font Awesome: não-bloqueante -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <style>
+        /* === CSS CRÍTICO INLINE (evita FOUC e render-blocking) === */
+        :root { --main: #FF7A00; }
 
         [data-theme="dark"] {
-            --bg: #0f172a;
-            --text: #f1f5f9;
-            --nav: #1e2937;
-            --card: #1e2937;
-            --footer: #020617;
-            --footer-text: #94a3b8;
-            --border: #334155;
+            --bg: #0f172a; --text: #f1f5f9; --nav: #1e2937;
+            --card: #1e2937; --footer: #020617;
+            --footer-text: #94a3b8; --border: #334155;
         }
 
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background-color: var(--bg, #ffffff);
             color: var(--text, #111827);
             transition: background-color 0.4s ease, color 0.4s ease;
+            -webkit-font-smoothing: antialiased;
         }
 
-        nav { 
-            background-color: var(--nav, #ffffff) !important; 
-            border-color: var(--border, #e5e7eb) !important; 
+        /* NAV */
+        nav {
+            background-color: var(--nav, #ffffff);
+            border-bottom: 1px solid var(--border, #e5e7eb);
+            position: sticky; top: 0; z-index: 50;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }
-        .bg-white { background-color: var(--bg, #ffffff) !important; }
-        .bg-gray-50 { background-color: var(--card, #f9fafb) !important; }
-        .text-gray-900 { color: var(--text, #111827) !important; }
-        .text-gray-300 { color: var(--footer-text, #d1d5db) !important; }
-        .bg-gray-900 { background-color: var(--footer, #111827) !important; }
-        .border-b { border-color: var(--border, #e5e7eb) !important; }
+        .nav-inner {
+            max-width: 72rem; margin: 0 auto;
+            padding: 0.75rem 1rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-container img { width: 46px; height: 46px; object-fit: contain; }
+        .logo-text { font-size: 1.65rem; font-weight: 600; color: var(--main); }
 
+        .nav-links { display: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--text, #111827); font-size: 1.125rem; }
+        .nav-links a:hover { color: var(--main); }
+
+        .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+        .btn-envelope {
+            background-color: var(--main); color: #fff;
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 0.75rem; text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .btn-envelope:hover { background-color: #c2530a; }
+        .btn-menu {
+            background: none; border: none; cursor: pointer;
+            font-size: 1.75rem; color: var(--text, #111827);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            border-top: 1px solid var(--border, #e5e7eb);
+            padding: 1.25rem 1rem;
+            background-color: var(--nav, #ffffff);
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu a {
+            display: block; padding: 0.75rem 0;
+            text-decoration: none; color: var(--text, #111827);
+            font-size: 1.125rem;
+        }
+        .mobile-menu a:hover { color: var(--main); }
+
+        /* HERO */
+        header {
+            background: linear-gradient(135deg, #ea580c, #9a3412);
+            color: #fff; padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        header img {
+            width: 100%; max-height: 280px; object-fit: cover;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+            /* Evitar layout shift */
+            aspect-ratio: 16/9;
+        }
+        header h1 { font-size: clamp(1.75rem, 5vw, 3rem); font-weight: 600; margin-bottom: 1rem; }
+        header p { font-size: clamp(1.1rem, 3vw, 1.5rem); margin-bottom: 2rem; }
+        .btn-cta {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: #fff; color: #c2530a;
+            padding: 1rem 2rem; border-radius: 1.5rem;
+            font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 600;
+            text-decoration: none; transition: background 0.2s;
+        }
+        .btn-cta:hover { background: #ffedd5; }
+
+        /* PHONE BAR */
+        .phone-bar {
+            padding: 2.5rem 1.5rem;
+            background-color: var(--bg, #fff);
+            border-bottom: 1px solid var(--border, #e5e7eb);
+            text-align: center;
+        }
+        .phone-bar p { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.5rem; }
+        .phone-bar a {
+            font-size: clamp(1.75rem, 6vw, 2.5rem); font-weight: 700;
+            color: var(--main); text-decoration: none;
+        }
+        .phone-bar a:hover { text-decoration: underline; }
+
+        /* FEATURES */
+        .features {
+            padding: 4rem 1.5rem;
+            background-color: var(--card, #f9fafb);
+        }
+        .features h2 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 600;
+            text-align: center; margin-bottom: 3rem;
+        }
+        .features-grid {
+            display: grid; gap: 1.5rem;
+            max-width: 32rem; margin: 0 auto;
+        }
+        .feature-card {
+            background: var(--bg, #fff);
+            padding: 2rem; border-radius: 1.5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            font-size: 1.1rem;
+        }
+
+        /* CTA BANNER */
+        .cta-banner {
+            background-color: var(--main); color: #fff;
+            padding: 3rem 1.5rem; text-align: center;
+            font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 500;
+        }
+        .cta-banner a { color: #fff; text-decoration: none; }
+        .cta-banner a:hover { text-decoration: underline; }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--footer, #111827);
+            color: var(--footer-text, #d1d5db);
+            padding: 3rem 1.5rem; text-align: center;
+        }
+        footer p { margin-bottom: 0.5rem; }
+        footer p:first-child { font-size: 1.125rem; margin-bottom: 0.5rem; }
+        footer p:nth-child(2) { font-size: 1.5rem; margin-bottom: 2rem; }
+        footer p:last-child { font-size: 0.875rem; }
+
+        /* THEME TOGGLE */
         #theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 52px;
-            height: 52px;
-            background-color: #f3f4f6;
-            color: #111827;
-            border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: fixed; bottom: 20px; right: 20px;
+            width: 52px; height: 52px;
+            background-color: #f3f4f6; color: #111827;
+            border-radius: 9999px; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 100; transition: all 0.3s ease;
         }
-        [data-theme="dark"] #theme-toggle {
-            background-color: #334155;
-            color: #f1f5f9;
-        }
-        #theme-toggle:hover {
-            transform: scale(1.1);
+        [data-theme="dark"] #theme-toggle { background-color: #334155; color: #f1f5f9; }
+        #theme-toggle:hover { transform: scale(1.1); }
+
+        /* DESKTOP breakpoint */
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .btn-menu { display: none; }
+            header img { max-height: 505px; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-container img {
-            width: 46px;
-            height: 46px;
-            object-fit: contain;
-        }
-        .logo-text {
-            font-size: 1.65rem;
-            font-weight: 600;
-            color: var(--main);
-        }
+        /* Conteúdo visível sem Font Awesome */
+        .fa-envelope::before { content: "✉"; }
+        .fa-bars::before { content: "☰"; }
+        .fa-sun::before { content: "☀"; }
+        .fa-moon::before { content: "☾"; }
     </style>
 
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
+            const t = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', t);
         })();
     </script>
 </head>
-<body class="bg-white text-gray-900">
+<body>
 
-<nav class="border-b sticky top-0 z-50 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <div class="logo-container">
-            <img src="Images/pinguim_sem_background_136x136.webp" alt="Mascote Nettchantier" class="drop-shadow-sm">
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="logo-container">
+            <img src="Images/pinguim_sem_background_136x136.webp" alt="Mascote Nettchantier" width="46" height="46">
             <span class="logo-text">Nettchantier</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À propos</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
         </div>
-
-        <div class="hidden md:flex space-x-8 text-lg">
-            <a href="index.html" class="hover:text-[var(--main)]">Accueil</a>
-            <a href="about.html" class="hover:text-[var(--main)]">À propos</a>
-            <a href="services.html" class="hover:text-[var(--main)]">Services</a>
-            <a href="contact.html" class="hover:text-[var(--main)]">Contact</a>
-        </div>
-
-        <div class="flex items-center gap-3">
-            <a href="contact.html" class="bg-[var(--main)] hover:bg-orange-700 text-white w-11 h-11 flex items-center justify-center rounded-2xl transition-colors">
-                <i class="fas fa-envelope text-lg"></i>
+        <div class="nav-actions">
+            <a href="contact.html" class="btn-envelope" aria-label="Contact">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
             </a>
-            <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
+            <button class="btn-menu" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" id="menuBtn">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
-
-    <div id="mobileMenu" class="hidden md:hidden border-t px-4 py-5 bg-white">
-        <a href="index.html" class="block py-3 hover:text-[var(--main)] text-lg">Accueil</a>
-        <a href="about.html" class="block py-3 hover:text-[var(--main)] text-lg">À propos</a>
-        <a href="services.html" class="block py-3 hover:text-[var(--main)] text-lg">Services</a>
-        <a href="contact.html" class="block py-3 hover:text-[var(--main)] text-lg">Contact</a>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Accueil</a>
+        <a href="about.html">À propos</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
     </div>
 </nav>
 
-<header class="relative bg-gradient-to-br from-orange-600 to-orange-800 text-white py-12">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-        <img src="Images/Nettchantier-scaled.webp" alt="Nettoyage fin de chantier" class="mx-auto rounded-3xl shadow-2xl mb-8 w-full max-h-[480px] md:max-h-[505px] object-cover">
-        <h1 class="text-4xl md:text-5xl font-semibold mb-6">Nous sommes à votre service !</h1>
-        <p class="text-2xl mb-8">Nettchantier est une entreprise de services de nettoyage professionnel pour particuliers et entreprises.</p>
-        <a href="contact.html" class="inline-flex items-center gap-3 bg-white text-orange-700 hover:bg-orange-100 px-10 py-5 rounded-3xl text-2xl font-semibold">Contactez-Nous !</a>
+<header>
+    <div style="max-width:72rem;margin:0 auto;">
+        <img src="Images/Nettchantier-scaled.webp"
+             alt="Nettoyage fin de chantier Bordeaux"
+             width="1200" height="675"
+             fetchpriority="high"
+             loading="eager">
+        <h1>Nous sommes à votre service !</h1>
+        <p>Nettchantier est une entreprise de services de nettoyage professionnel pour particuliers et entreprises.</p>
+        <a href="contact.html" class="btn-cta">Contactez-Nous !</a>
     </div>
 </header>
 
-<div class="py-12 bg-white border-b text-center">
-    <p class="text-2xl font-medium mb-3">Appelez-nous !</p>
-    <a href="tel:+33982320946" class="text-4xl font-semibold text-[var(--main)] hover:underline">+33 982 320 946</a>
+<div class="phone-bar">
+    <p>Appelez-nous !</p>
+    <a href="tel:+33982320946">+33 982 320 946</a>
 </div>
 
-<section class="py-16 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-4xl font-semibold text-center mb-12">Un service de qualité pour répondre à vos besoins</h2>
-        <div class="grid md:grid-cols-2 gap-8 max-w-md mx-auto">
-            <div class="bg-white p-8 rounded-3xl shadow-sm">Rapidité d'exécution</div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm">Flexibilité dans les horaires</div>
-        </div>
+<section class="features">
+    <h2>Un service de qualité pour répondre à vos besoins</h2>
+    <div class="features-grid">
+        <div class="feature-card">Rapidité d'exécution</div>
+        <div class="feature-card">Flexibilité dans les horaires</div>
     </div>
 </section>
 
-<div class="bg-[var(--main)] text-white py-12 text-center text-2xl font-medium">
-    <a href="contact.html" class="hover:underline">Planifiez votre nettoyage maintenant →</a>
+<div class="cta-banner">
+    <a href="contact.html">Planifiez votre nettoyage maintenant →</a>
 </div>
 
-<footer class="bg-gray-900 text-gray-300 py-12">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-        <p class="text-xl mb-2">📍 Bordeaux • Cap Ferret • Arcachon • Médoc • Saint Émilion</p>
-        <p class="text-2xl mb-8">+33 982 320 946</p>
-        <p class="text-sm">© Nettchantier 2026 – Tous droits réservés</p>
-    </div>
+<footer>
+    <p>📍 Bordeaux • Cap Ferret • Arcachon • Médoc • Saint Émilion</p>
+    <p>+33 982 320 946</p>
+    <p>© Nettchantier 2026 – Tous droits réservés</p>
 </footer>
 
 <button id="theme-toggle" aria-label="Changer le thème">
-    <i class="fas fa-sun"></i>
+    <i class="fas fa-sun" aria-hidden="true"></i>
 </button>
 
-<script src="https://cdn.tailwindcss.com" defer></script>
 <script>
-    function toggleMobileMenu() {
-        document.getElementById('mobileMenu').classList.toggle('hidden');
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const btn = document.getElementById('menuBtn');
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
     }
 
     const toggleBtn = document.getElementById('theme-toggle');
@@ -182,20 +289,14 @@
     function setTheme(theme) {
         html.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        toggleBtn.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        toggleBtn.querySelector('i').className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
     }
 
-    function initTheme() {
-        const saved = localStorage.getItem('theme') || 'light';
-        setTheme(saved);
-    }
+    setTheme(localStorage.getItem('theme') || 'light');
 
     toggleBtn.addEventListener('click', () => {
-        const current = html.getAttribute('data-theme') || 'light';
-        setTheme(current === 'light' ? 'dark' : 'light');
+        setTheme(html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
     });
-
-    initTheme();
 </script>
 </body>
 </html>
