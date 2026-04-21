@@ -91,11 +91,6 @@
             font-size: clamp(1.5rem, 4vw, 3rem);
             font-weight: 600; margin-bottom: 1rem;
         }
-        .contact-section .subtitle {
-            font-size: 1.25rem; margin-bottom: 3rem;
-            color: var(--text, #374151);
-        }
-
         /* FORM */
         .contact-form {
             max-width: 32rem; margin: 0 auto;
@@ -223,14 +218,13 @@
 
 <div class="contact-section">
     <h1>Contactez-nous ! Demandez votre devis</h1>
-    <p class="subtitle">Réponse rapide – Nous vous répondrons dans moins de 24h</p>
 
     <form action="https://formspree.io/f/xaqajgep" method="POST" class="contact-form">
         <!-- Honeypot anti-spam -->
         <input class="hp" type="text" name="_honeypot" tabindex="-1" autocomplete="off">
 
         <div class="form-group">
-            <label for="name">Nom complet</label>
+            <label for="name">Prénom et Nom</label>
             <input type="text" id="name" name="name" required autocomplete="name">
         </div>
         <div class="form-group">
@@ -238,7 +232,7 @@
             <input type="email" id="email" name="email" required autocomplete="email">
         </div>
         <div class="form-group">
-            <label for="phone">Téléphone</label>
+            <label for="phone">Téléphone <span style="font-weight:400;opacity:0.6;font-size:0.85em;">(facultatif)</span></label>
             <input type="tel" id="phone" name="phone" autocomplete="tel">
         </div>
         <div class="form-group" style="margin-bottom:2rem;">
