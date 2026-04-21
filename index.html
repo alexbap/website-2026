@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Nettoyage fin de chantier et fin de location à Bordeaux et Gironde. Service professionnel, rapide et accessible. Devis gratuit en 24h.">
     <title>nettchantier – Nettoyage fin de chantier</title>
-    <!-- Favicon -->
     <link rel="icon" type="image/webp" href="Images/pinguim_sem_background_136x136.webp">
     <link rel="apple-touch-icon" href="Images/pinguim_sem_background_136x136.webp">
     <meta name="theme-color" content="#EA670C">
@@ -18,39 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <style>
-        :root {
-            --main: #EA670C;
-            --main-hover: #C4530A;
-            --bg: #F8F7F5;
-            --bg-card: #EFEFED;
-            --text: #1A1A1A;
-            --text-muted: #5A5A5A;
-            --nav: #F8F7F5;
-            --border: #DDDBD8;
-            --footer: #111827;
-            --footer-text: #d1d5db;
-        }
-        [data-theme="dark"] {
-            --bg: #0f172a; --bg-card: #1e2937; --text: #f1f5f9;
-            --text-muted: #94a3b8; --nav: #1e2937; --border: #334155;
-            --footer: #020617; --footer-text: #94a3b8;
-        }
+        :root { --main: #EA670C; --main-hover: #C4530A; --bg: #F8F7F5; --bg-card: #EFEFED; --text: #1A1A1A; --text-muted: #5A5A5A; --nav: #F8F7F5; --border: #DDDBD8; --footer: #111827; --footer-text: #d1d5db; }
+        [data-theme="dark"] { --bg: #0f172a; --bg-card: #1e2937; --text: #f1f5f9; --text-muted: #94a3b8; --nav: #1e2937; --border: #334155; --footer: #020617; --footer-text: #94a3b8; }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg); color: var(--text);
-            transition: background-color 0.4s ease, color 0.4s ease;
-            -webkit-font-smoothing: antialiased;
-        }
-        nav {
-            background-color: var(--nav); border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; z-index: 50;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-        }
-        .nav-inner {
-            max-width: 72rem; margin: 0 auto; padding: 0.75rem 1rem;
-            display: flex; justify-content: space-between; align-items: center;
-        }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg); color: var(--text); transition: background-color 0.4s ease, color 0.4s ease; -webkit-font-smoothing: antialiased; }
+        nav { background-color: var(--nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .nav-inner { max-width: 72rem; margin: 0 auto; padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-container img { width: 46px; height: 46px; object-fit: contain; }
         .logo-text { font-size: 1.65rem; font-weight: 600; color: var(--main); }
@@ -58,87 +30,41 @@
         .nav-links a { text-decoration: none; color: var(--text); font-size: 1.125rem; }
         .nav-links a:hover { color: var(--main); }
         .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
-        .btn-envelope {
-            background-color: var(--main); color: #fff; width: 44px; height: 44px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 0.75rem; text-decoration: none; transition: background-color 0.2s;
-        }
+        .btn-envelope { background-color: var(--main); color: #fff; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 0.75rem; text-decoration: none; transition: background-color 0.2s; }
         .btn-envelope:hover { background-color: var(--main-hover); }
         .btn-menu { background: none; border: none; cursor: pointer; font-size: 1.75rem; color: var(--text); }
-        .mobile-menu {
-            display: none; border-top: 1px solid var(--border);
-            padding: 1.25rem 1rem; background-color: var(--nav);
-        }
+        .mobile-menu { display: none; border-top: 1px solid var(--border); padding: 1.25rem 1rem; background-color: var(--nav); }
         .mobile-menu.open { display: block; }
-        .mobile-menu a {
-            display: block; padding: 0.75rem 0;
-            text-decoration: none; color: var(--text); font-size: 1.125rem;
-        }
+        .mobile-menu a { display: block; padding: 0.75rem 0; text-decoration: none; color: var(--text); font-size: 1.125rem; }
         .mobile-menu a:hover { color: var(--main); }
-        header {
-            background: linear-gradient(135deg, #ea580c, #9a3412);
-            color: #fff; padding: 3rem 1.5rem; text-align: center;
-        }
-        header .hero-img-wrap {
-            width: 100%; height: clamp(280px, 40vw, 505px);
-            border-radius: 1.5rem; overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            margin-bottom: 2rem;
-        }
-        header .hero-img-wrap img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
-        }
+        header { background: linear-gradient(135deg, #ea580c, #9a3412); color: #fff; padding: 3rem 1.5rem; text-align: center; }
+        header img { width: 100%; height: 280px; object-fit: cover; border-radius: 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3); margin-bottom: 2rem; display: block; }
         header h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 600; margin-bottom: 1rem; }
         header p { font-size: clamp(1.1rem, 3vw, 1.5rem); margin-bottom: 2rem; }
-        .btn-cta {
-            display: inline-flex; align-items: center; gap: 0.75rem;
-            background: #fff; color: var(--main-hover);
-            padding: 1rem 2rem; border-radius: 1.5rem;
-            font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 600;
-            text-decoration: none; transition: background 0.2s;
-        }
+        .btn-cta { display: inline-flex; align-items: center; gap: 0.75rem; background: #fff; color: var(--main-hover); padding: 1rem 2rem; border-radius: 1.5rem; font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 600; text-decoration: none; transition: background 0.2s; }
         .btn-cta:hover { background: #ffedd5; }
-        .phone-bar {
-            padding: 2.5rem 1.5rem; background-color: var(--bg);
-            border-bottom: 1px solid var(--border); text-align: center;
-        }
+        .phone-bar { padding: 2.5rem 1.5rem; background-color: var(--bg); border-bottom: 1px solid var(--border); text-align: center; }
         .phone-bar p { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-muted); }
         .phone-bar a { font-size: clamp(1.75rem, 6vw, 2.5rem); font-weight: 700; color: var(--main); text-decoration: none; }
         .phone-bar a:hover { text-decoration: underline; }
         .features { padding: 4rem 1.5rem; background-color: var(--bg-card); }
         .features h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 600; text-align: center; margin-bottom: 3rem; }
         .features-grid { display: grid; gap: 1.5rem; max-width: 32rem; margin: 0 auto; }
-        .feature-card {
-            background: var(--bg); padding: 2rem; border-radius: 1.5rem;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.06); font-size: 1.1rem;
-        }
-        .cta-banner {
-            background-color: var(--main); color: #fff;
-            padding: 3rem 1.5rem; text-align: center;
-            font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 500;
-        }
+        .feature-card { background: var(--bg); padding: 2rem; border-radius: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); font-size: 1.1rem; }
+        .cta-banner { background-color: var(--main); color: #fff; padding: 3rem 1.5rem; text-align: center; font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 500; }
         .cta-banner a { color: #fff; text-decoration: none; }
         .cta-banner a:hover { text-decoration: underline; }
-        footer {
-            background-color: var(--footer); color: var(--footer-text);
-            padding: 3rem 1.5rem; text-align: center;
-        }
+        footer { background-color: var(--footer); color: var(--footer-text); padding: 3rem 1.5rem; text-align: center; }
         footer p { margin-bottom: 0.5rem; }
         footer p:first-child { font-size: 1.125rem; margin-bottom: 0.5rem; }
         footer p:nth-child(2) { font-size: 1.5rem; margin-bottom: 2rem; }
         footer p:last-child { font-size: 0.875rem; }
-        #theme-toggle {
-            position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px;
-            background-color: var(--bg-card); color: var(--text);
-            border-radius: 9999px; border: none; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-            z-index: 100; transition: all 0.3s ease;
-        }
+        #theme-toggle { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background-color: var(--bg-card); color: var(--text); border-radius: 9999px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.12); z-index: 100; transition: all 0.3s ease; }
         #theme-toggle:hover { transform: scale(1.1); }
         @media (min-width: 768px) {
             .nav-links { display: flex; }
             .btn-menu { display: none; }
+            header img { height: 505px; }
             .features-grid { grid-template-columns: 1fr 1fr; }
         }
         .fa-envelope::before { content: "✉"; }
@@ -175,9 +101,7 @@
 </nav>
 <header>
     <div style="max-width:72rem;margin:0 auto;">
-        <div class="hero-img-wrap">
-            <img src="Images/nettoyage-chantier-bordeaux.webp" alt="Nettoyage fin de chantier Bordeaux" fetchpriority="high" loading="eager">
-        </div>
+        <img src="Images/nettoyage-chantier-bordeaux.webp" alt="Nettoyage fin de chantier Bordeaux" fetchpriority="high">
         <h1>Nous sommes à votre service !</h1>
         <p>Nettchantier est une entreprise de services de nettoyage professionnel pour particuliers et entreprises.</p>
         <a href="contact.html" class="btn-cta">Contactez-Nous !</a>
@@ -204,18 +128,10 @@
 </footer>
 <button id="theme-toggle" aria-label="Changer le thème"><i class="fas fa-sun" aria-hidden="true"></i></button>
 <script>
-    function toggleMenu() {
-        const menu = document.getElementById('mobileMenu');
-        const btn = document.getElementById('menuBtn');
-        btn.setAttribute('aria-expanded', menu.classList.toggle('open'));
-    }
+    function toggleMenu() { const menu = document.getElementById('mobileMenu'); const btn = document.getElementById('menuBtn'); btn.setAttribute('aria-expanded', menu.classList.toggle('open')); }
     const toggleBtn = document.getElementById('theme-toggle');
     const html = document.documentElement;
-    function setTheme(theme) {
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        toggleBtn.querySelector('i').className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-    }
+    function setTheme(theme) { html.setAttribute('data-theme', theme); localStorage.setItem('theme', theme); toggleBtn.querySelector('i').className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun'; }
     setTheme(localStorage.getItem('theme') || 'light');
     toggleBtn.addEventListener('click', () => setTheme(html.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
 </script>
