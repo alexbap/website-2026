@@ -59,8 +59,8 @@
         .page-content h1 { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 600; margin-bottom: 1rem; }
         .page-content img { width: 100%; height: 240px; object-fit: cover; overflow: hidden; border-radius: 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.1); margin-bottom: 1.25rem; display: block; }
         .page-content p { font-size: 1.1rem; line-height: 1.7; }
-        .page-content p + p { margin-top: 1rem; }
-        .page-content .text-muted { font-size: 1rem; color: var(--text-muted); font-style: italic; }
+        .page-content p + p { margin-top: 1rem; font-size: 0.95rem; }
+        .page-content p + p strong { font-weight: 600; }
         @media (min-width: 768px) {
             .nav-links { display: flex; }
             .btn-menu { display: none; }
@@ -68,7 +68,7 @@
             .page-content h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: 2rem; }
             .page-content img { height: 580px; margin-bottom: 2.5rem; }
             .page-content p { font-size: 1.25rem; }
-            .page-content .text-muted { font-size: 1.05rem; }
+            .page-content p + p { font-size: 1.05rem; }
         }
         footer { background-color: var(--footer); color: var(--footer-text); padding: 3rem 1.5rem; text-align: center; }
         footer p { margin-bottom: 0.5rem; }
@@ -112,8 +112,8 @@
 <div class="page-content">
     <h1>Nous réglons vos problèmes !</h1>
     <img src="Images/nettoyage-professionnel-gironde.webp" alt="Nettchantier – Un service de qualité" width="1200" height="675" fetchpriority="high">
-    <p>Nettchantier est une entreprise de nettoyage professionnel à Bordeaux. Nous intervenons sur tout le secteur de la Gironde.</p>
-    <p class="text-muted">Spécialisés dans le nettoyage fin de chantier, nous intervenons sur des propriétés viticoles, des résidences haut de gamme et des chantiers exigeants dans toute la Gironde — là où la précision et la discrétion font la différence.</p>
+    <p>Nettchantier est une entreprise de nettoyage professionnel à Bordeaux.</p>
+    <p><strong>Spécialisés dans le nettoyage fin de chantier, nous intervenons sur tout le secteur de la Gironde, sur des propriétés viticoles, des résidences haut de gamme et des chantiers exigeants — là où la précision et la discrétion font la différence.</strong></p>
 </div>
 <footer>
     <p>📍 Bordeaux • Cap Ferret • Arcachon • Médoc • Saint Émilion</p>
