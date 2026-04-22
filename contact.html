@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactez Nettchantier pour votre devis gratuit.">
+    <meta name="description" content="Contactez Nettchantier pour votre devis gratuit. Réponse sous 24h.">
     <title>nettchantier – Contact</title>
-    <!-- Favicon -->
     <link rel="icon" type="image/webp" href="Images/pinguim_sem_background_136x136.webp">
     <link rel="apple-touch-icon" href="Images/pinguim_sem_background_136x136.webp">
     <meta name="theme-color" content="#EA670C">
@@ -17,34 +16,31 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Nettchantier",
+      "description": "Entreprise de nettoyage fin de chantier professionnelle à Bordeaux et Gironde.",
+      "telephone": "+33982320946",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bordeaux",
+        "addressRegion": "Gironde",
+        "addressCountry": "FR"
+      },
+      "areaServed": ["Bordeaux", "Cap Ferret", "Arcachon", "Médoc", "Saint-Émilion"],
+      "url": "https://www.nettchantier.fr",
+      "priceRange": "€€"
+    }
+    </script>
     <style>
-        :root {
-            --main: #EA670C; --main-hover: #C4530A;
-            --bg: #F8F7F5; --bg-card: #EFEFED; --text: #1A1A1A;
-            --text-muted: #5A5A5A; --nav: #F8F7F5; --border: #DDDBD8;
-            --footer: #111827; --footer-text: #d1d5db;
-        }
-        [data-theme="dark"] {
-            --bg: #0f172a; --bg-card: #1e2937; --text: #f1f5f9;
-            --text-muted: #94a3b8; --nav: #1e2937; --border: #334155;
-            --footer: #020617; --footer-text: #94a3b8;
-        }
+        :root { --main: #EA670C; --main-hover: #C4530A; --bg: #F8F7F5; --bg-card: #EFEFED; --text: #1A1A1A; --text-muted: #5A5A5A; --nav: #F8F7F5; --border: #DDDBD8; --footer: #111827; --footer-text: #d1d5db; }
+        [data-theme="dark"] { --bg: #0f172a; --bg-card: #1e2937; --text: #f1f5f9; --text-muted: #94a3b8; --nav: #1e2937; --border: #334155; --footer: #020617; --footer-text: #94a3b8; }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg); color: var(--text);
-            transition: background-color 0.4s ease, color 0.4s ease;
-            -webkit-font-smoothing: antialiased;
-        }
-        nav {
-            background-color: var(--nav); border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; z-index: 50;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-        }
-        .nav-inner {
-            max-width: 72rem; margin: 0 auto; padding: 0.75rem 1rem;
-            display: flex; justify-content: space-between; align-items: center;
-        }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg); color: var(--text); transition: background-color 0.4s ease, color 0.4s ease; -webkit-font-smoothing: antialiased; }
+        nav { background-color: var(--nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .nav-inner { max-width: 72rem; margin: 0 auto; padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-container img { width: 46px; height: 46px; object-fit: contain; }
         .logo-text { font-size: 1.65rem; font-weight: 600; color: var(--main); }
@@ -52,84 +48,42 @@
         .nav-links a { text-decoration: none; color: var(--text); font-size: 1.125rem; }
         .nav-links a:hover { color: var(--main); }
         .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
-        .btn-envelope {
-            background-color: var(--main); color: #fff; width: 44px; height: 44px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 0.75rem; text-decoration: none; transition: background-color 0.2s;
-        }
+        .btn-envelope { background-color: var(--main); color: #fff; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 0.75rem; text-decoration: none; transition: background-color 0.2s; }
         .btn-envelope:hover { background-color: var(--main-hover); }
         .btn-menu { background: none; border: none; cursor: pointer; font-size: 1.75rem; color: var(--text); }
-        .mobile-menu {
-            display: none; border-top: 1px solid var(--border);
-            padding: 1.25rem 1rem; background-color: var(--nav);
-        }
+        .mobile-menu { display: none; border-top: 1px solid var(--border); padding: 1.25rem 1rem; background-color: var(--nav); }
         .mobile-menu.open { display: block; }
-        .mobile-menu a {
-            display: block; padding: 0.75rem 0;
-            text-decoration: none; color: var(--text); font-size: 1.125rem;
-        }
+        .mobile-menu a { display: block; padding: 0.75rem 0; text-decoration: none; color: var(--text); font-size: 1.125rem; }
         .mobile-menu a:hover { color: var(--main); }
-
-        /* CONTACT */
         .contact-section { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
-        .contact-section h1 {
-            font-size: clamp(1.5rem, 4vw, 2.25rem);
-            font-weight: 600; margin-bottom: 2.5rem; text-align: center;
-        }
-
-        .contact-form {
-            max-width: 32rem; margin: 0 auto;
-            background-color: var(--bg-card);
-            padding: 2rem; border-radius: 1.5rem;
-        }
+        .contact-section h1 { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 600; margin-bottom: 2.5rem; text-align: center; }
+        /* Processo */
+        .contact-process { display: grid; gap: 1rem; margin-bottom: 2.5rem; max-width: 32rem; margin-left: auto; margin-right: auto; }
+        .contact-process-step { display: flex; align-items: center; gap: 1rem; }
+        .contact-process-num { background-color: var(--bg-card); border: 1.5px solid var(--border); color: var(--main); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem; flex-shrink: 0; }
+        .contact-process-step span { font-size: 0.95rem; color: var(--text-muted); }
+        .contact-form { max-width: 32rem; margin: 0 auto; background-color: var(--bg-card); padding: 2rem; border-radius: 1.5rem; }
         @media (min-width: 480px) { .contact-form { padding: 2.5rem; } }
-
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 500; color: var(--text-muted); }
-        .form-group input,
-        .form-group textarea {
-            width: 100%; padding: 1rem 1.25rem;
-            border: 1.5px solid var(--border);
-            border-radius: 1rem;
-            font-family: inherit;
-            font-size: max(16px, 1rem);
-            background-color: var(--bg);
-            color: var(--text);
-            transition: border-color 0.2s;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus { outline: none; border-color: var(--main); }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem 1.25rem; border: 1.5px solid var(--border); border-radius: 1rem; font-family: inherit; font-size: max(16px, 1rem); background-color: var(--bg); color: var(--text); transition: border-color 0.2s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--main); }
         .form-group textarea { resize: vertical; min-height: 120px; }
-        .btn-submit {
-            width: 100%; background-color: var(--main); color: #fff;
-            border: none; cursor: pointer; padding: 1.25rem;
-            border-radius: 1.5rem; font-size: 1.25rem; font-weight: 500;
-            font-family: inherit; transition: background-color 0.2s; min-height: 56px;
-        }
+        .btn-submit { width: 100%; background-color: var(--main); color: #fff; border: none; cursor: pointer; padding: 1.25rem; border-radius: 1.5rem; font-size: 1.25rem; font-weight: 500; font-family: inherit; transition: background-color 0.2s; min-height: 56px; }
         .btn-submit:hover { background-color: var(--main-hover); }
         .hp { display: none; }
-
         @media (min-width: 768px) {
             .nav-links { display: flex; }
             .btn-menu { display: none; }
+            .contact-process { grid-template-columns: repeat(3, 1fr); max-width: 100%; }
+            .contact-process-step { flex-direction: column; text-align: center; }
         }
-
-        footer {
-            background-color: var(--footer); color: var(--footer-text);
-            padding: 3rem 1.5rem; text-align: center;
-        }
+        footer { background-color: var(--footer); color: var(--footer-text); padding: 3rem 1.5rem; text-align: center; }
         footer p { margin-bottom: 0.5rem; }
         footer p:first-child { font-size: 1.125rem; }
         footer p:nth-child(2) { font-size: 1.5rem; margin-bottom: 2rem; }
         footer p:last-child { font-size: 0.875rem; }
-        #theme-toggle {
-            position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px;
-            background-color: var(--bg-card); color: var(--text);
-            border-radius: 9999px; border: none; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-            z-index: 100; transition: all 0.3s ease;
-        }
+        #theme-toggle { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background-color: var(--bg-card); color: var(--text); border-radius: 9999px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.12); z-index: 100; transition: all 0.3s ease; }
         #theme-toggle:hover { transform: scale(1.1); }
         .fa-envelope::before { content: "✉"; }
         .fa-bars::before { content: "☰"; }
@@ -165,6 +119,20 @@
 </nav>
 <div class="contact-section">
     <h1>Contactez-nous ! Demandez votre devis</h1>
+    <div class="contact-process">
+        <div class="contact-process-step">
+            <div class="contact-process-num">1</div>
+            <span>Envoyez votre demande — réponse sous 24h</span>
+        </div>
+        <div class="contact-process-step">
+            <div class="contact-process-num">2</div>
+            <span>Nous évaluons votre chantier et établissons un devis gratuit</span>
+        </div>
+        <div class="contact-process-step">
+            <div class="contact-process-num">3</div>
+            <span>Intervention à la date convenue, avec soin et discrétion</span>
+        </div>
+    </div>
     <form action="https://formspree.io/f/xaqajgep" method="POST" class="contact-form">
         <input class="hp" type="text" name="_honeypot" tabindex="-1" autocomplete="off">
         <div class="form-group">
@@ -193,18 +161,10 @@
 </footer>
 <button id="theme-toggle" aria-label="Changer le thème"><i class="fas fa-sun" aria-hidden="true"></i></button>
 <script>
-    function toggleMenu() {
-        const menu = document.getElementById('mobileMenu');
-        const btn = document.getElementById('menuBtn');
-        btn.setAttribute('aria-expanded', menu.classList.toggle('open'));
-    }
+    function toggleMenu() { const menu = document.getElementById('mobileMenu'); const btn = document.getElementById('menuBtn'); btn.setAttribute('aria-expanded', menu.classList.toggle('open')); }
     const toggleBtn = document.getElementById('theme-toggle');
     const html = document.documentElement;
-    function setTheme(theme) {
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        toggleBtn.querySelector('i').className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-    }
+    function setTheme(theme) { html.setAttribute('data-theme', theme); localStorage.setItem('theme', theme); toggleBtn.querySelector('i').className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun'; }
     setTheme(localStorage.getItem('theme') || 'light');
     toggleBtn.addEventListener('click', () => setTheme(html.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
 </script>

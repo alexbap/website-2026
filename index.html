@@ -16,6 +16,24 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Nettchantier",
+      "description": "Entreprise de nettoyage fin de chantier professionnelle à Bordeaux et Gironde.",
+      "telephone": "+33982320946",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bordeaux",
+        "addressRegion": "Gironde",
+        "addressCountry": "FR"
+      },
+      "areaServed": ["Bordeaux", "Cap Ferret", "Arcachon", "Médoc", "Saint-Émilion"],
+      "url": "https://www.nettchantier.fr",
+      "priceRange": "€€"
+    }
+    </script>
     <style>
         :root { --main: #EA670C; --main-hover: #C4530A; --bg: #F8F7F5; --bg-card: #EFEFED; --text: #1A1A1A; --text-muted: #5A5A5A; --nav: #F8F7F5; --border: #DDDBD8; --footer: #111827; --footer-text: #d1d5db; }
         [data-theme="dark"] { --bg: #0f172a; --bg-card: #1e2937; --text: #f1f5f9; --text-muted: #94a3b8; --nav: #1e2937; --border: #334155; --footer: #020617; --footer-text: #94a3b8; }
@@ -50,7 +68,8 @@
         .features { padding: 4rem 1.5rem; background-color: var(--bg-card); }
         .features h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 600; text-align: center; margin-bottom: 3rem; }
         .features-grid { display: grid; gap: 1.5rem; max-width: 32rem; margin: 0 auto; }
-        .feature-card { background: var(--bg); padding: 2rem; border-radius: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); font-size: 1.1rem; }
+        .feature-card { background: var(--bg); padding: 2rem; border-radius: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); font-size: 1.1rem; font-weight: 500; }
+        .feature-card span { display: block; font-size: 0.9rem; font-weight: 400; color: var(--text-muted); margin-top: 0.4rem; }
         .cta-banner { background-color: var(--main); color: #fff; padding: 3rem 1.5rem; text-align: center; font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 500; }
         .cta-banner a { color: #fff; text-decoration: none; }
         .cta-banner a:hover { text-decoration: underline; }
@@ -114,8 +133,14 @@
 <section class="features">
     <h2>Un service de qualité pour répondre à vos besoins</h2>
     <div class="features-grid">
-        <div class="feature-card">Rapidité d'exécution</div>
-        <div class="feature-card">Flexibilité dans les horaires</div>
+        <div class="feature-card">
+            Chantiers d'envergure en Gironde
+            <span>Propriétés viticoles, résidences et chantiers exigeants</span>
+        </div>
+        <div class="feature-card">
+            Disponibilité &amp; réactivité
+            <span>Réponse sous 24h, intervention adaptée à vos délais</span>
+        </div>
     </div>
 </section>
 <div class="cta-banner">

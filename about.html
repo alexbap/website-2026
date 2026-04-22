@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nettchantier - Entreprise de nettoyage professionnel à Bordeaux et Gironde.">
+    <meta name="description" content="Nettchantier - Entreprise de nettoyage fin de chantier à Bordeaux et Gironde. Discrétion, précision et réactivité.">
     <title>nettchantier – À propos</title>
     <link rel="icon" type="image/webp" href="Images/pinguim_sem_background_136x136.webp">
     <link rel="apple-touch-icon" href="Images/pinguim_sem_background_136x136.webp">
@@ -16,6 +16,24 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Nettchantier",
+      "description": "Entreprise de nettoyage fin de chantier professionnelle à Bordeaux et Gironde.",
+      "telephone": "+33982320946",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bordeaux",
+        "addressRegion": "Gironde",
+        "addressCountry": "FR"
+      },
+      "areaServed": ["Bordeaux", "Cap Ferret", "Arcachon", "Médoc", "Saint-Émilion"],
+      "url": "https://www.nettchantier.fr",
+      "priceRange": "€€"
+    }
+    </script>
     <style>
         :root { --main: #EA670C; --main-hover: #C4530A; --bg: #F8F7F5; --bg-card: #EFEFED; --text: #1A1A1A; --text-muted: #5A5A5A; --nav: #F8F7F5; --border: #DDDBD8; --footer: #111827; --footer-text: #d1d5db; }
         [data-theme="dark"] { --bg: #0f172a; --bg-card: #1e2937; --text: #f1f5f9; --text-muted: #94a3b8; --nav: #1e2937; --border: #334155; --footer: #020617; --footer-text: #94a3b8; }
@@ -41,6 +59,8 @@
         .page-content h1 { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 600; margin-bottom: 1rem; }
         .page-content img { width: 100%; height: 240px; object-fit: cover; overflow: hidden; border-radius: 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.1); margin-bottom: 1.25rem; display: block; }
         .page-content p { font-size: 1.1rem; line-height: 1.7; }
+        .page-content p + p { margin-top: 1rem; }
+        .page-content .text-muted { font-size: 1rem; color: var(--text-muted); font-style: italic; }
         @media (min-width: 768px) {
             .nav-links { display: flex; }
             .btn-menu { display: none; }
@@ -48,6 +68,7 @@
             .page-content h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: 2rem; }
             .page-content img { height: 580px; margin-bottom: 2.5rem; }
             .page-content p { font-size: 1.25rem; }
+            .page-content .text-muted { font-size: 1.05rem; }
         }
         footer { background-color: var(--footer); color: var(--footer-text); padding: 3rem 1.5rem; text-align: center; }
         footer p { margin-bottom: 0.5rem; }
@@ -92,6 +113,7 @@
     <h1>Nous réglons vos problèmes !</h1>
     <img src="Images/nettoyage-professionnel-gironde.webp" alt="Nettchantier – Un service de qualité" width="1200" height="675" fetchpriority="high">
     <p>Nettchantier est une entreprise de nettoyage professionnel à Bordeaux. Nous intervenons sur tout le secteur de la Gironde.</p>
+    <p class="text-muted">Spécialisés dans le nettoyage fin de chantier, nous intervenons sur des propriétés viticoles, des résidences haut de gamme et des chantiers exigeants dans toute la Gironde — là où la précision et la discrétion font la différence.</p>
 </div>
 <footer>
     <p>📍 Bordeaux • Cap Ferret • Arcachon • Médoc • Saint Émilion</p>
